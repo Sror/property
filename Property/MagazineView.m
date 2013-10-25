@@ -161,6 +161,7 @@ int imageCount;
 
 - (void)viewDidLoad
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"enableCloseMenu" object:nil userInfo:nil];
     DbAccssor * dba = [[DbAccssor alloc]init];
     magazine=   [dba GetMagazine:0 :@"Eng"];
     

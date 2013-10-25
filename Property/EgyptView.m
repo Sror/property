@@ -25,32 +25,8 @@
     return self;
 }
 
-- (void)viewDidLoad
+-(void)setEgyptViewAlignment
 {
-    [super viewDidLoad];
-    resultFlag = TRUE;
-    priceFlag = TRUE;
-    sqFlag = TRUE;
-    bidsFlag = TRUE;
-    bathFlag = TRUE;
-    finishScrolling = TRUE;
-    [countryScroll setFrame:CGRectMake(55, 40, 161, 0)];
-    [propertyTypeScroll setFrame:CGRectMake(243, 40, 161, 0)];
-    [minPriceScroll setFrame:CGRectMake(580, 40, 161, 0)];
-    [maxPriceScroll setFrame:CGRectMake(767, 40, 161, 0)];
-    
-    tableViewOutlet.delegate = self;
-    tableViewOutlet.scrollEnabled = YES;
-    [searchScroll setHidden:YES];
-    searchTf.delegate = self;
-    countryData = [[NSMutableArray alloc] initWithObjects:@"New Cairo",@"6 Octobar",@"sheikh zaid",@"maadi",@"North coast",@"ِAl Shorok",@"UpTwon Cairo",@"Gouna",@"Marassi",@"Mohandessen", nil];
-    
-    propertyTypeData = [[NSMutableArray alloc] initWithObjects:@"Medical",@"Office",@"Duplex",@"Apartment",@"Chalet",@"Ground floor",@"shop",@"Ain sokhna",@"studio",@"El obour", nil];
-    
-    minData = [[NSMutableArray alloc] initWithObjects:@"100000",@"200000",@"300000",@"400000",@"500000",@"600000",@"700000",@"800000",@"900000",@"1000000", nil];
-    
-    maxData = [[NSMutableArray alloc] initWithObjects:@"100000",@"200000",@"300000",@"400000",@"500000",@"600000",@"700000",@"800000",@"900000",@"1000000", nil];
-    
     if(((AppDelegate *)[UIApplication sharedApplication].delegate).menuOpen ==1)
     {
         [tableViewOutlet setFrame:CGRectMake(0, 74, 1024, 610)];
@@ -90,6 +66,37 @@
         [UIView commitAnimations];
     }
 
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"disableCloseMenu" object:nil userInfo:nil];
+    
+    resultFlag = TRUE;
+    priceFlag = TRUE;
+    sqFlag = TRUE;
+    bidsFlag = TRUE;
+    bathFlag = TRUE;
+    finishScrolling = TRUE;
+    [countryScroll setFrame:CGRectMake(55, 40, 161, 0)];
+    [propertyTypeScroll setFrame:CGRectMake(243, 40, 161, 0)];
+    [minPriceScroll setFrame:CGRectMake(580, 40, 161, 0)];
+    [maxPriceScroll setFrame:CGRectMake(767, 40, 161, 0)];
+    
+    tableViewOutlet.delegate = self;
+    tableViewOutlet.scrollEnabled = YES;
+    [searchScroll setHidden:YES];
+    searchTf.delegate = self;
+    countryData = [[NSMutableArray alloc] initWithObjects:@"New Cairo",@"6 Octobar",@"sheikh zaid",@"maadi",@"North coast",@"ِAl Shorok",@"UpTwon Cairo",@"Gouna",@"Marassi",@"Mohandessen", nil];
+    
+    propertyTypeData = [[NSMutableArray alloc] initWithObjects:@"Medical",@"Office",@"Duplex",@"Apartment",@"Chalet",@"Ground floor",@"shop",@"Ain sokhna",@"studio",@"El obour", nil];
+    
+    minData = [[NSMutableArray alloc] initWithObjects:@"100000",@"200000",@"300000",@"400000",@"500000",@"600000",@"700000",@"800000",@"900000",@"1000000", nil];
+    
+    maxData = [[NSMutableArray alloc] initWithObjects:@"100000",@"200000",@"300000",@"400000",@"500000",@"600000",@"700000",@"800000",@"900000",@"1000000", nil];
+    
+    
     
     cellBgFlag=FALSE;
     [secondHeader setBackgroundColor:[UIColor colorWithRed:0xda/255.0f
@@ -112,6 +119,8 @@
                                                 green:0x3f/255.0f
                                                  blue:0x50/255.0f alpha:1]];
     
+    
+    [self setEgyptViewAlignment];
     
 
     myHomeBgNo.backgroundColor=[UIColor grayColor];

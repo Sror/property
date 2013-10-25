@@ -26,9 +26,21 @@
     return self;
 }
 
+-(void)disableCloseMenu
+{
+    showMenuBtn.enabled = NO;
+}
+-(void)enableCloseMenu
+{
+    showMenuBtn.enabled = YES;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(disableCloseMenu) name:@"disableCloseMenu" object:nil];
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enableCloseMenu) name:@"enableCloseMenu" object:nil];
+    
     //Tab 1
     
     [commercialProperty setBackgroundColor:[UIColor colorWithRed:0x0b/255.0f
@@ -205,7 +217,10 @@
         [showMenuBtn setBackgroundImage:[UIImage imageNamed:@"bottom-tab-bar-btn.png"] forState:UIControlStateNormal];
     }
     [UIView commitAnimations];
+    
     showMenuFlag =! showMenuFlag;
+    
+    
     
     switch (((AppDelegate *)[UIApplication sharedApplication].delegate).selectedTab) {
         case 1:
@@ -220,18 +235,18 @@
             break;
         case 3:
         {
-            EgyptView *egyptView = [[EgyptView alloc] init];
+            /*EgyptView *egyptView = [[EgyptView alloc] init];
             egyptView.view.frame    = containerView.bounds;
             [self.containerView addSubview:egyptView.view];
-            [self addChildViewController:egyptView];
+            [self addChildViewController:egyptView];*/
         }
             break;
         case 4:
         {
-            MagazineView *magazineView = [[MagazineView alloc] init];
+            /*MagazineView *magazineView = [[MagazineView alloc] init];
             magazineView.view.frame    = containerView.bounds;
             [self.containerView addSubview:magazineView.view];
-            [self addChildViewController:magazineView];
+            [self addChildViewController:magazineView];*/
         }
             break;
         default:
