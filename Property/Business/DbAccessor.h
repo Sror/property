@@ -15,16 +15,23 @@
 #import "SuggestedPropertyItem.h"
 #import "FillingOptionItem.h"
 #import "PropertyAdvisorEnums.h"
+#import "FavouriteModel.h"
 
 @interface DbAccessor : NSObject
-
+{
+    sqlite3* database;
+    BOOL DatabaseFound;
+    NSString *usedLangApprev;
+    NSString *MagazineContentPath;
+}
 
 -(Magazine *) GetMagazine:(int)categoryId;
 -(int) GetContentVersion;
+
 -(NSMutableArray*)LoadLocationList;
 -(NSMutableArray*)LoadPropertyTypeList;
 -(NSMutableArray*)LoadSalesTypeList;
 -(NSMutableArray*)LoadPropertyList:(int)locationId :(int)propertyTypeId :(int)SalesTypeId :(int)categryId;
--(PropertyItem*)LoadProperty:(long)propertyId;
 
+-(PropertyItem*)LoadProperty:(long)propertyId;
 @end

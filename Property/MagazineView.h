@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreMotion/CoreMotion.h>
 
-@interface MagazineView : UIViewController<UIScrollViewDelegate>
+@interface MagazineView : UIViewController<UIScrollViewDelegate >
 {
 
     int lastOffset,rightCount,tagInx;
-    BOOL tagPressed;
+    BOOL tagPressed, tapped;
+    double positionX, positionY, positionZ;
+    NSMutableArray *imagesTags;
+    CMMotionManager *motionManager;
 }
 
 

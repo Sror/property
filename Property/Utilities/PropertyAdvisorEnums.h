@@ -3,20 +3,21 @@
 #import <Foundation/Foundation.h>
 typedef enum
 {
-    EgyptResidential=1,
-    EgyptCommercial=2,
-    International=3
+    egyptResidential=1,
+    egyptCommercial=2,
+    international=3
     
-} PropertyCategories;
+} propertyCategories;
 
 
 
 typedef enum
 {
-    ReachabilityStatusWifi=1,
-    ReachabilityStatusMobile3G=2,
-    ReachabilityStatusOffline=3
-} ReachabilityStatus;
+    reachabilityStatusWifi=1,
+    reachabilityStatusMobile3G=2,
+    reachabilityStatusOffline=3
+    
+} reachabilityStatus;
 
 
 

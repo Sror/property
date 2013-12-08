@@ -11,81 +11,51 @@
 
 @implementation PropertyAdvisorUtilities  
 
--(void) LogException:(NSException*) exception
+-(void) logException:(NSException*) exception
 {
 
-  }
+}
 
-
-
-
--(ReachabilityStatus) CheckReachability
+-(NSString*) getDeviceId
 {
-    Reachability *reach =
-    [Reachability reachabilityForInternetConnection];
+    return @"";
+}
+
+-(reachabilityStatus) checkReachability
+{
+    Reachability *reach  = [Reachability reachabilityForInternetConnection];
     NetworkStatus status = [reach currentReachabilityStatus];
-    ReachabilityStatus returnStatus = ReachabilityStatusOffline;
-    switch(status) {
+    reachabilityStatus returnStatus = reachabilityStatusOffline;
+    switch(status)
+    {
         case NotReachable:
-            returnStatus =ReachabilityStatusOffline;
+            returnStatus = reachabilityStatusOffline;
             break;
         case ReachableViaWiFi:
-            returnStatus =ReachabilityStatusWifi;
+            returnStatus = reachabilityStatusWifi;
             break;
         case ReachableViaWWAN:
-            returnStatus =ReachabilityStatusMobile3G;
+            returnStatus = reachabilityStatusMobile3G;
             break;
         default:
-            returnStatus = ReachabilityStatusOffline;
+            returnStatus = reachabilityStatusOffline;
             break;
     }
-
-    
-    
-//    if(returnStatus==ReachabilityStatusWifi || returnStatus==ReachabilityStatusMobile3G)
-//    {
-//        Reachability *rserverRach =
-//        [[Reachability reachabilityWithHostName:ServerCheckUrl] retain];
-//        NetworkStatus serverStatus = [rserverRach currentReachabilityStatus];
-//        
-//        switch(serverStatus) {
-//            case NotReachable:
-//                returnStatus =ReachabilityStatusOffline;
-//                break;
-//            case ReachableViaWiFi:
-//                returnStatus =ReachabilityStatusWifi;
-//                break;
-//            case ReachableViaWWAN:
-//                returnStatus =ReachabilityStatusMobile3G;
-//                break;
-//            default:
-//                returnStatus = ReachabilityStatusOffline;
-//                break;
-//        }
-//
-//    
-//    }
-      
     return returnStatus;
-    
 }
  
 
-- (NSString*) GetCurrentTime
+- (NSString*) getCurrentTime
 {
     NSDate *today = [NSDate date];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
     [dateFormat setTimeZone:timeZone];
-
     
     [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss S"];
     NSString *dateString = [dateFormat stringFromDate:today];
-  
      return dateString; 
 }
-
-
 
 
 @end

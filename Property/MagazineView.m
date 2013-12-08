@@ -61,18 +61,60 @@ int imageCount;
         
         
         UIImageView *currentImage = [[UIImageView alloc] initWithImage:img];
+        //[currentImage setTag:(-1 *[imageItem ImageItemId])];
         [currentImage setFrame:CGRectMake(x, 0, 1024, 719)];
         [mainScroll addSubview:currentImage];
         
+        
+        UIScrollView *imageDetailsLayer = [[UIScrollView alloc] init];
+        [imageDetailsLayer setTag:(-[imageItem ImageItemId] *100)];
+        [imageDetailsLayer setFrame:CGRectMake(x, 659, 1024, 60)];
+        [imageDetailsLayer setBackgroundColor:[UIColor blackColor]];
+        [imageDetailsLayer setAlpha:0];
+        
+        
+        UILabel *imageTitle = [[UILabel alloc] initWithFrame:CGRectMake(60, 10, 300, 50)];
+        [imageTitle setBackgroundColor:[UIColor clearColor]];
+        [imageTitle setTextColor:[UIColor whiteColor]];
+        [imageTitle setText:imageItem.ImageItemTitle];
+        imageTitle.font = [UIFont fontWithName:@"Helvetica-BoldOblique" size:[UIFont systemFontSize]];
+        imageTitle.backgroundColor = [UIColor clearColor];
+        imageTitle.lineBreakMode = NSLineBreakByWordWrapping;
+        imageTitle.numberOfLines = 0;
+        [imageTitle sizeToFit];
+        [imageDetailsLayer addSubview:imageTitle];
+        
+        UILabel *imageDescription = [[UILabel alloc] initWithFrame:CGRectMake(60, 30, 600, 50)];
+        [imageDescription setBackgroundColor:[UIColor clearColor]];
+        [imageDescription setTextColor:[UIColor lightGrayColor]];
+        [imageDescription setText:imageItem.ImageItemDescription];
+        imageDescription.font = [UIFont systemFontOfSize:12];
+        imageDescription.lineBreakMode = NSLineBreakByWordWrapping;
+        imageDescription.numberOfLines = 0;
+        [imageDescription sizeToFit];
+        [imageDetailsLayer addSubview:imageDescription];
+        
+        [mainScroll addSubview:imageDetailsLayer];
+        
+        UIButton *imageTap = [UIButton buttonWithType:UIButtonTypeCustom];
+        [imageTap setBackgroundColor:[UIColor clearColor]];
+        [imageTap setTag:[imageItem ImageItemId]*100];
+        [imageTap addTarget:self action:@selector(openDescription:) forControlEvents:UIControlEventTouchUpInside];
+        [imageTap setFrame:CGRectMake(x, 0, 1024, 719)];
+        [mainScroll addSubview:imageTap];
+       
+       
+ 
         for(MagazineImageTag *obj in imageItem.TagList)
         {
             // Red image Tage
              UIButton *imageTag = [UIButton buttonWithType:UIButtonTypeCustom];
              [imageTag setBackgroundImage:[UIImage imageNamed:@"Tag-icon.png"] forState:UIControlStateNormal];
-          //   [imageTag setTag:index];   //
-            [imageTag setTag:[obj ImageTagId]]; // =====> tag id
+            [imageTag setTag:[obj ImageTagId]];
              [imageTag addTarget:self action:@selector(openTag:) forControlEvents:UIControlEventTouchUpInside];
              [imageTag setFrame:CGRectMake(currentImage.frame.origin.x + 200, 200, 24, 42)];
+            
+            [imagesTags addObject:[NSString stringWithFormat:@"%li",[obj ImageTagId]]];
             
             //=======> Tag Coordinates
             [imageTag setFrame:CGRectMake(currentImage.frame.origin.x + [obj XCoordinate], [obj YCoordinate], 24, 42)];
@@ -83,14 +125,14 @@ int imageCount;
         
             // Tag Container
             UIScrollView *tagContent = [[UIScrollView alloc] initWithFrame:CGRectMake(imageTag.frame.origin.x - 50, imageTag.frame.origin.y + 50, 150, 100)];
-          //  [tagContent setTag:-index];
             
-             [tagContent setTag:-[obj ImageTagId]]; // =====> tag id
+             [tagContent setTag:-[obj ImageTagId]];
             
             // Tag Title
             UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 130, 50)];
-            title.text = [obj ImageTagTitle]; //=====> tag title
+            title.text = [obj ImageTagTitle];
             title.font = [UIFont fontWithName:@"Helvetica-BoldOblique" size:[UIFont systemFontSize]];
+            title.textColor = [UIColor whiteColor];
             title.backgroundColor = [UIColor clearColor];
             title.lineBreakMode = NSLineBreakByWordWrapping;
             title.numberOfLines = 0;
@@ -100,6 +142,7 @@ int imageCount;
             UILabel *description = [[UILabel alloc] initWithFrame:CGRectMake(10, 25, 130, 50)];
             description.text = [obj ImageTagDescription]; // =======> tag description
             description.backgroundColor = [UIColor clearColor];
+            description.textColor = [UIColor lightGrayColor];
             description.font = [UIFont systemFontOfSize:12];
             description.lineBreakMode = NSLineBreakByWordWrapping;
             description.numberOfLines = 0;
@@ -107,9 +150,10 @@ int imageCount;
             [tagContent addSubview:description];
             
             [tagContent setContentSize:CGSizeMake(0, description.bounds.size.height + 20)];
-            tagContent.backgroundColor = [UIColor lightGrayColor];
+            tagContent.backgroundColor = [UIColor blackColor];
             tagContent.alpha = 0;
             [self.mainScroll addSubview:tagContent];
+            
             
             index++;
         }
@@ -138,48 +182,63 @@ int imageCount;
         [self.view addGestureRecognizer:tab];
         
         tagInx = [sender tag];
-         
-        CGFloat t = 8.0;
-        CGAffineTransform leftQuake  = CGAffineTransformTranslate(CGAffineTransformIdentity, -t, t);
-        CGAffineTransform rightQuake = CGAffineTransformTranslate(CGAffineTransformIdentity, t, -t);
-    
-        ((UIButton *)[self.mainScroll viewWithTag:[sender tag]]).transform = leftQuake;  // starting point
-   
-        [UIView beginAnimations:@"earthquake" context:nil];
-        [UIView setAnimationRepeatAutoreverses:YES]; // important
-        [UIView setAnimationDuration:0.5];
-        [UIView setAnimationDelegate:self];
-        [UIView setAnimationDidStopSelector:@selector(earthquakeEnded)];
-    
-        ((UIButton *)[self.mainScroll viewWithTag:[sender tag]]).transform = rightQuake; // end here & auto-reverse
         
-        [UIView commitAnimations];
+        ((UIScrollView *)[self.mainScroll viewWithTag:-tagInx]).alpha = 0.8;
     }
     else
     {
+        [UIView beginAnimations:@"animation" context:nil];
+        [UIView setAnimationDuration:0.5];
         ((UIScrollView *)[self.mainScroll viewWithTag:-tagInx]).alpha = 0;
+        [UIView commitAnimations];
     }
     tagPressed =! tagPressed;
 }
 
-- (void)earthquakeEnded
-{
-    ((UIButton *)[self.mainScroll viewWithTag:tagInx]).transform = CGAffineTransformIdentity;
-    ((UIScrollView *)[self.mainScroll viewWithTag:-tagInx]).alpha = 0.8;
-}
-
 - (void)viewDidLoad
 {
-    DbAccessor * dba = [[DbAccessor alloc]init];
-    magazine=   [dba GetMagazine:0];
-
-    
     [super viewDidLoad];
     
-     [[NSNotificationCenter defaultCenter] postNotificationName:@"enableCloseMenu" object:nil userInfo:nil];
+    motionManager = [[CMMotionManager alloc] init]; // and then initialize it here..
+    motionManager.deviceMotionUpdateInterval = 0.3;
+    [motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue mainQueue]
+                                       withHandler:^(CMDeviceMotion *motion, NSError *error)
+     {
+         float x =motion.userAcceleration.x;
+         float y = motion.userAcceleration.y;
+         [UIView animateWithDuration:0.3 animations:^{
+             for(int i = 0;i < imagesTags.count ; i++)
+             {
+                 ((UIButton *)[self.mainScroll viewWithTag:[[imagesTags objectAtIndex:i] integerValue]]).transform = CGAffineTransformMakeTranslation(-x*30, -y*30);
+             }
+         }];
+     }
+     ];
+    
+    imagesTags = [NSMutableArray array];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"enableCloseMenu" object:nil userInfo:nil];
+    
+    DbAccessor * dba = [[DbAccessor alloc]init];
+    magazine=   [dba GetMagazine:0];
+    
     mainScroll.delegate = self;
     lastOffset = 0, rightCount = 0;
     [self GetImage:0];
+
+}
+
+
+
+-(void)openDescription:(id)sender
+{
+    [UIView beginAnimations:@"animation" context:nil];
+    [UIView setAnimationDuration:0.5];
+    if(!tapped)
+        ((UIScrollView *)[self.mainScroll viewWithTag:-[sender tag]]).alpha = 0.8;
+    else
+        ((UIScrollView *)[self.mainScroll viewWithTag:-[sender tag]]).alpha = 0;
+    [UIView commitAnimations];
+    tapped =! tapped;
 }
 
 -(void)hideTagPopup:(UITapGestureRecognizer *)gesture;

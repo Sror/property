@@ -99,7 +99,6 @@
 		D3975A291731C2A400D86216 /* image1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D3975A271731C2A400D86216 /* image1.jpg */; };
 		D3975A2A1731C2A400D86216 /* image2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D3975A281731C2A400D86216 /* image2.jpg */; };
 		D39E1807172C2E01005D3E16 /* Magazine.m in Sources */ = {isa = PBXBuildFile; fileRef = D39E1802172C2E01005D3E16 /* Magazine.m */; };
-		D39E180C172C2E13005D3E16 /* advisor.db in Resources */ = {isa = PBXBuildFile; fileRef = D39E180B172C2E13005D3E16 /* advisor.db */; };
 		D3C22A44171FDFFB00BD7C52 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3C22A43171FDFFB00BD7C52 /* UIKit.framework */; };
 		D3C22A46171FDFFB00BD7C52 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3C22A45171FDFFB00BD7C52 /* Foundation.framework */; };
 		D3C22A4E171FDFFC00BD7C52 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D3C22A4C171FDFFB00BD7C52 /* InfoPlist.strings */; };
@@ -114,6 +113,9 @@
 		D3C22A6E171FE2ED00BD7C52 /* SplashView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3C22A6C171FE2ED00BD7C52 /* SplashView.xib */; };
 		D3C22A71171FE36100BD7C52 /* splash-bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D3C22A6F171FE36100BD7C52 /* splash-bg.jpg */; };
 		D3C22A72171FE36100BD7C52 /* splash-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D3C22A70171FE36100BD7C52 /* splash-logo.png */; };
+		D3CD1B481851DD9E00CD77CF /* FavouriteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CD1B471851DD9E00CD77CF /* FavouriteModel.m */; };
+		D3CD1B4A1851F42700CD77CF /* advisor.db in Resources */ = {isa = PBXBuildFile; fileRef = D3CD1B491851F42700CD77CF /* advisor.db */; };
+		D3CD1B4F185281FA00CD77CF /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3CD1B4E185281FA00CD77CF /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -241,7 +243,6 @@
 		D3975A281731C2A400D86216 /* image2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image2.jpg; sourceTree = "<group>"; };
 		D39E1801172C2E01005D3E16 /* Magazine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Magazine.h; sourceTree = "<group>"; };
 		D39E1802172C2E01005D3E16 /* Magazine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Magazine.m; sourceTree = "<group>"; };
-		D39E180B172C2E13005D3E16 /* advisor.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = advisor.db; sourceTree = "<group>"; };
 		D3C22A40171FDFFB00BD7C52 /* Property.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Property.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3C22A43171FDFFB00BD7C52 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D3C22A45171FDFFB00BD7C52 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -263,6 +264,10 @@
 		D3C22A6C171FE2ED00BD7C52 /* SplashView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashView.xib; sourceTree = "<group>"; };
 		D3C22A6F171FE36100BD7C52 /* splash-bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "splash-bg.jpg"; sourceTree = "<group>"; };
 		D3C22A70171FE36100BD7C52 /* splash-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-logo.png"; sourceTree = "<group>"; };
+		D3CD1B461851DD9E00CD77CF /* FavouriteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteModel.h; sourceTree = "<group>"; };
+		D3CD1B471851DD9E00CD77CF /* FavouriteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteModel.m; sourceTree = "<group>"; };
+		D3CD1B491851F42700CD77CF /* advisor.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = advisor.db; sourceTree = "<group>"; };
+		D3CD1B4E185281FA00CD77CF /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +275,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3CD1B4F185281FA00CD77CF /* CoreMotion.framework in Frameworks */,
 				55832F0B18149D910039602D /* libsqlite3.0.dylib in Frameworks */,
 				55ED9E7E1807A2C1008B88F4 /* CoreGraphics.framework in Frameworks */,
 				55ED9E7D1807A27F008B88F4 /* QuartzCore.framework in Frameworks */,
@@ -449,6 +455,8 @@
 				55EA18B3182FCF5D0005ACBE /* FillingOptionItem.m */,
 				55EA18B8182FD7DA0005ACBE /* SuggestedPropertyItem.h */,
 				55EA18B9182FD7DA0005ACBE /* SuggestedPropertyItem.m */,
+				D3CD1B461851DD9E00CD77CF /* FavouriteModel.h */,
+				D3CD1B471851DD9E00CD77CF /* FavouriteModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -456,7 +464,7 @@
 		D39E180A172C2E06005D3E16 /* DB */ = {
 			isa = PBXGroup;
 			children = (
-				D39E180B172C2E13005D3E16 /* advisor.db */,
+				D3CD1B491851F42700CD77CF /* advisor.db */,
 			);
 			name = DB;
 			sourceTree = "<group>";
@@ -482,6 +490,7 @@
 		D3C22A42171FDFFB00BD7C52 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D3CD1B4E185281FA00CD77CF /* CoreMotion.framework */,
 				55832F0A18149D910039602D /* libsqlite3.0.dylib */,
 				55ED9E7C1807A27F008B88F4 /* QuartzCore.framework */,
 				55ED9E7A1807A22F008B88F4 /* CoreImage.framework */,
@@ -694,7 +703,6 @@
 				D348941F172405CF00C3D3F2 /* image-holder.png in Resources */,
 				D3489421172407E400C3D3F2 /* share-icon.png in Resources */,
 				D348942317241D7200C3D3F2 /* select-tab.png in Resources */,
-				D39E180C172C2E13005D3E16 /* advisor.db in Resources */,
 				D351ED2B17314A2300212681 /* menu_sep.png in Resources */,
 				D351ED2D17314C9100212681 /* btn-selected.png in Resources */,
 				D351ED3217314DF500212681 /* commercial-properties.png in Resources */,
@@ -710,6 +718,7 @@
 				D351ED4617317A0C00212681 /* switch-rent.png in Resources */,
 				D351ED4817317DED00212681 /* xhdpi_dropdown_list.png in Resources */,
 				D351ED4A17318A1E00212681 /* search-btn.png in Resources */,
+				D3CD1B4A1851F42700CD77CF /* advisor.db in Resources */,
 				D351ED4C17318A5800212681 /* search-filed.png in Resources */,
 				D351ED5317318CE700212681 /* DropDownCell.xib in Resources */,
 				D3975A1E17319DA700D86216 /* search-icon.png in Resources */,
@@ -770,6 +779,7 @@
 				55EA18B4182FCF5D0005ACBE /* FillingOptionItem.m in Sources */,
 				55EA18B7182FD4800005ACBE /* PropertyManager.m in Sources */,
 				55EA18BA182FD7DB0005ACBE /* SuggestedPropertyItem.m in Sources */,
+				D3CD1B481851DD9E00CD77CF /* FavouriteModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -848,15 +858,15 @@
 		D3C22A5E171FDFFC00BD7C52 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Baher Atteya (8R5YQTYHW9)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Baher Atteya (8R5YQTYHW9)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Property/Property-Prefix.pch";
 				INFOPLIST_FILE = "Property/Property-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1A3C9DBF-C4B8-43BF-BB85-F19500F28B8F";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -864,15 +874,15 @@
 		D3C22A5F171FDFFC00BD7C52 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Baher Atteya (8R5YQTYHW9)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Baher Atteya (8R5YQTYHW9)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Property/Property-Prefix.pch";
 				INFOPLIST_FILE = "Property/Property-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "690C2811-8FEB-4A83-85EF-88EBF6618901";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

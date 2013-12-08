@@ -35,7 +35,7 @@
     [super viewDidLoad];
     PropertyAdvisorUpdater * paUpdater = [[PropertyAdvisorUpdater alloc]init];
     paUpdater.viewController = self;
-    [paUpdater  CheckForInitialUpdate:self];
+    [paUpdater  checkForInitialUpdate:self];
     
     
     

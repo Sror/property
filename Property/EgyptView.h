@@ -9,16 +9,22 @@
 #import <UIKit/UIKit.h>
 #import "TableCell.h"
 #import "DropDownCell.h"
+#import "FavouriteModel.h"
 
 @interface EgyptView : UIViewController <UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate,UIScrollViewDelegate>
 {
     IBOutlet TableCell *tableCell;
     IBOutlet DropDownCell *dropDownCell;
     BOOL cellBgFlag, priceFlag, sqFlag, bidsFlag, bathFlag, countryFlag, propertyTypeFlag, maxPriceFlag, minPriceFlag, rentFlag, countryTableFlag, propertyTableFlag, minTableFlag, maxTableFlag, searchFlag, finishScrolling,resultFlag;
-    NSMutableArray *countryData, *propertyTypeData, *maxData, *minData;
+    NSMutableArray *countryData, *propertyTypeData, *maxData, *minData, *favArray;
+    int rent,countryId,propertyTypeId;
 }
+
+@property (weak, nonatomic) IBOutlet UILabel *favLbl;
+
 @property (strong, nonatomic) IBOutlet UIImageView *secondHeader;
 @property (strong, nonatomic) IBOutlet UIImageView *myHomeBgNo;
+@property (weak, nonatomic) IBOutlet UILabel *propertyListCountLbl;
 
 @property (strong, nonatomic) IBOutlet UILabel *priceColorLbl;
 @property (strong, nonatomic) IBOutlet UILabel *sqColorLbl;

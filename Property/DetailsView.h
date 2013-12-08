@@ -14,6 +14,7 @@
     int lastOffset,rightCount,imageCount;
     Magazine * magazine;
     long CurrentPropertyId;
+    BOOL opened;
 }
 @property (weak, nonatomic) IBOutlet UILabel *propertyName;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollContainer;
@@ -24,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *activeLinkImg;
 @property (weak, nonatomic) IBOutlet UIScrollView *dataContentScroll;
 @property (nonatomic) long  CurrentPropertyId;
+@property (weak, nonatomic) IBOutlet UIScrollView *headerScroll;
 - (IBAction)propertyFacts:(id)sender;
 - (IBAction)description:(id)sender;
 - (IBAction)contact:(id)sender;

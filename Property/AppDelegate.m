@@ -12,6 +12,7 @@
 @synthesize nav,splashView;
 @synthesize menuOpen = _menuOpen;
 @synthesize selectedTab = _selectedTab;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DbAccessor.h"
 
 @interface TableCell : UITableViewCell
 
+@property (nonatomic) int propertyId;
 @property (strong, nonatomic) IBOutlet UIImageView *imageBackgroud;
 @property (strong, nonatomic) IBOutlet UIImageView *topicImage;
 
@@ -24,7 +26,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *NumberOfImages;
 
 @property (strong, nonatomic) IBOutlet UIButton *followImage;
-
+@property (weak, nonatomic) IBOutlet UIButton *followBtn;
 - (IBAction)goFollow:(id)sender;
 - (IBAction)goShare:(id)sender;
 @end

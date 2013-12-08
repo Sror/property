@@ -2,14 +2,11 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString * const ServerBaseUrl;
+extern NSString * const serverBaseUrl;
 
-extern NSString * const ServerCheckVersionUrl;
+extern NSString * const serverCheckVersionUrl;
 
-
- 
- 
-extern NSString * const  ServerDownloadUpdateFileUrl;
+extern NSString * const serverDownloadUpdateFileUrl;
 
  
 

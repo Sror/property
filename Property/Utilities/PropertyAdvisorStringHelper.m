@@ -1,15 +1,10 @@
  
 #import "PropertyAdvisorStringHelper.h"
 // build mode 1 = production, 2= staging
-
  
-  NSString * const ServerCheckVersionUrl =@"pa/GetLastVersion.aspx";
+NSString * const serverCheckVersionUrl = @"pa/GetLastVersion.aspx";
  
-NSString * const ServerBaseUrl=@"64.150.185.120";
-
-
+NSString * const serverBaseUrl = @"64.150.185.120";
  
-
- 
-NSString * const ServerDownloadUpdateFileUrl=@"pa/updates/pa_magazine_%d.zip";
+NSString * const serverDownloadUpdateFileUrl = @"pa/updates/pa_magazine_%d.zip";
 
